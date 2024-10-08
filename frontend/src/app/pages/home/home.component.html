@@ -4,18 +4,18 @@
   </header>
   <main class="main-container">
     <app-fileinput (fileSelected)="onFileSelected($event)"></app-fileinput>
-    <section class="images-container">
-        <div *ngIf="submittedImageUrl">
-          <h3>Imagem Submetida:</h3>
-          <img class="img" [src]="submittedImageUrl" alt="Imagem Submetida" />
-        </div>
-        <div  *ngIf="resultImageUrl">
-          <h3>Imagem Resultante:</h3>
-          <img class="img" [src]="resultImageUrl" alt="Imagem Resultante" />
-        </div>
-      </section>
     <section class="button-container">
       <app-button (click)="onSubmit()">Realizar Classificação Haar-Cascade</app-button>
+    </section>
+    <section class="images-container">
+      <div class="img" *ngIf="submittedImageUrl">
+        <h3>Imagem Submetida:</h3>
+        <img [src]="submittedImageUrl" alt="Imagem Submetida" />
+      </div>
+      <div class="img" *ngIf="resultImageUrl">
+        <h3>Imagem Resultante:</h3>
+        <img [src]="resultImageUrl" alt="Imagem Resultante" />
+      </div>
     </section>
   </main>
   

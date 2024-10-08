@@ -4,7 +4,7 @@ import { FileinputComponent } from '../../components/fileinput/fileinput.compone
 import { ResultComponent } from '../../components/result/result.component';
 
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HaarService } from '../../services/haar.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ export class HomeComponent {
   submittedImageUrl: string | null = null;
   resultImageUrl: string | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private haarService: HaarService) {}
 
   onFileSelected(file: File | null) {
     this.submittedFile = file
@@ -38,17 +38,15 @@ export class HomeComponent {
       console.log("Nenhum arquivo encontrado")
       return
     }
-    const formData = new FormData();
-    formData.append('image', this.submittedFile);
 
-    this.http.post('http://localhost:5000/upload_image', formData).subscribe({
+    this.haarService.uploadImage(this.submittedFile).subscribe({
       next: () => this.getProcessedImage(),
       error: (err) => console.error(err)
     })
   }
 
   getProcessedImage() {
-    this.http.get('http://localhost:5000/get_image', {responseType: 'blob'}).subscribe({
+    this.haarService.getProcessedImage().subscribe({
       next: (blob) => {
         const url = URL.createObjectURL(blob);
         this.resultImageUrl = url
