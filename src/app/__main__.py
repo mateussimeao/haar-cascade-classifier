@@ -13,27 +13,37 @@ def MostrarImagemComDeteccoes(imagem, objetos_detectados, cor=(0, 255, 0), nome=
 
 #Aplicar Haar Cascade
 def AplicarClassificador(caminho_classificador, imagem, escala=1.1, vizinhos=5, min_tamanho=(30, 30)):
-    classificador = cv2.CascadeClassifier(cv2.data.haarcascades + caminho_classificador)
+    classificador = cv2.CascadeClassifier(caminho_classificador)
+    if classificador.empty():
+        raise ValueError(f"Erro ao carregar o classificador XML: {caminho_classificador}")
+    
     cinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
     objetos_detectados = classificador.detectMultiScale(cinza, scaleFactor=escala, minNeighbors=vizinhos, minSize=min_tamanho)
     return objetos_detectados
 
-def main():
+#Parâmetros
+parametros = {
+    'Rosto': [(1.1, 5)],
+}
 
-    #parametros
-    parametros = {
-        'Rosto': [(1.1, 5)],
-    }
+#Lista de imagens
+imagens = [
+    {'nome': 'imagem_teste.jpeg', 'caminho': 'src/app/imagem_teste.jpeg'},
+    {'nome': 'imagem_teste2.jpg', 'caminho': 'src/app/imagem_teste2.jpg'}
+]
 
-    imagem_rosto = cv2.imread('src/app/imagem_teste.jpeg')
+xmlfile = 'src/app/myfacedetector.xml'
+
+#Processar as imagens
+for imagem_info in imagens:
+    imagem_rosto = cv2.imread(imagem_info['caminho'])
+    
     if imagem_rosto is None:
-        print("Erro ao carregar a imagem de rosto. Verifique o caminho.")
+        print(f"Erro ao carregar a imagem: {imagem_info['caminho']}. Verifique o caminho.")
     else:
-        for escala, vizinhos in parametros['Rosto']:
-            objetos_rosto = AplicarClassificador('haarcascade_frontalface_default.xml', imagem_rosto, escala=escala, vizinhos=vizinhos)
-            MostrarImagemComDeteccoes(imagem_rosto.copy(), objetos_rosto, nome=f"Rosto Detectado (escala={escala}, vizinhos={vizinhos})")
-        return 0
-
-
-if __name__ == "__main__":
-    SystemExit(main())
+        try:
+            for escala, vizinhos in parametros['Rosto']:
+                objetos_rosto = AplicarClassificador(xmlfile, imagem_rosto, escala=escala, vizinhos=vizinhos)
+                MostrarImagemComDeteccoes(imagem_rosto.copy(), objetos_rosto, nome=f"{imagem_info['nome']} - Rosto Detectado (escala={escala}, vizinhos={vizinhos})")
+        except ValueError as e:
+            print(e)
