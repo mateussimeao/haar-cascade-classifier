@@ -18,6 +18,7 @@ A interface gráfica foi implementada em **Angular** para permitir a interação
 
 - Para executar o classificador é nécessario acessar a pasta de frontend e executar a aplicação.
 - `cd frontend` para entrar no diretório do front-end
+- `npm install @angular/cli@17` para instalar o angular
 - `npm install` para instalar o pacote node_modules e dependências
 - `ng serve` ou `npm start` para executar o front-end
 - Em seguida a partir do diretório raiz do repositório deve ser acessado o backend e executar o arquivo [haar-training.py](https://github.com/mateussimeao/haar-cascade-classifier/blob/main/backend/haar-training.py).
