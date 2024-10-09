@@ -17,10 +17,10 @@ A interface gráfica foi implementada em **Angular** para permitir a interação
 - A interação com o back-end é feita por meio de chamadas HTTP, onde as imagens processadas são enviadas para o servidor local e retornadas com as detecções visíveis.
 
 - Para executar o classificador é nécessario acessar a pasta de frontend e executar a aplicação.
-`cd frontend`
-`ng serve`
-- Em seguida a partir do diretório raiz do repositório deve ser acessado o backend e executar o arquivo [haar-training.py](https://github.com/mateussimeao/haar-cascade-classifier/blob/main/backend/haar-training.py)
-`cd backend`
+- `cd frontend`
+- `ng serve`
+- Em seguida a partir do diretório raiz do repositório deve ser acessado o backend e executar o arquivo [haar-training.py](https://github.com/mateussimeao/haar-cascade-classifier/blob/main/backend/haar-training.py).
+- `cd backend`
 
 
 #### Demonstração da aplicação:
