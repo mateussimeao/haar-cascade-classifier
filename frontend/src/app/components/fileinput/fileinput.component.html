@@ -1,6 +1,18 @@
 <form class="input-file-container">
-    <label class="input-file-label">
-      Enviar Arquivo
-      <input type="file" class="input-file" (change)="onFileSelected($event)" />
-    </label>
-  </form>
+  <h3>Selecione o que desja detectar</h3>
+  <div class="radio-container">
+    <div class="radio-box">
+      <input type="radio" id="faces" name="choice" (change)="onFaceSelected()"/>
+      <label for="faces">Rosto</label>
+    </div>
+    <div class="radio-box">
+      <input type="radio" id="eyes" name="choice" (change)="onEyesSelected()" />
+      <label for="eyes">Olhos</label>
+    </div>
+  </div>
+
+  <label class="input-file-label">
+    Enviar Arquivo
+    <input type="file" class="input-file" (change)="onFileSelected($event)" />
+  </label>
+</form>

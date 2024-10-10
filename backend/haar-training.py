@@ -30,8 +30,11 @@ def upload_image():
     # Verificar se o arquivo de imagem foi enviado na requisição
     if 'image' not in request.files:
         return jsonify({"error": "Nenhuma imagem foi enviada."}), 400
+    elif 'choice' not in request.values: 
+        return jsonify({"error": "Nenhuma opção de detecção escolhida.."}), 400
     
     file = request.files['image']
+    choice = request.values['choice']
     
     # Salvar o arquivo temporariamente
     temp_dir = tempfile.gettempdir()
@@ -43,11 +46,15 @@ def upload_image():
     if imagem_rosto is None:
         return jsonify({"error": "Erro ao carregar a imagem."}), 500
 
-    # Parâmetros de detecção
     parametros = {
         'Rosto': [(1.1, 5)],
     }
-    xmlfile = 'backend/assets/myfacedetector.xml'
+    if choice == "Face":
+        xmlfile = 'backend/assets/myfacedetector.xml'
+    elif choice == "Eyes":
+        xmlfile = 'backend/assets/haarcascade_eye.xml'
+    else:
+        return jsonify({"error": "Nenhuma opção de detecção escolhida."}), 400
 
     try:
         for escala, vizinhos in parametros['Rosto']:

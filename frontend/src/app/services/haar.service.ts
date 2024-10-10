@@ -12,9 +12,10 @@ export class HaarService {
   constructor(private http: HttpClient) { }
 
   // Post
-  uploadImage(file: File): Observable<any> {
+  uploadImage(file: File, choice: string): Observable<any> {
     const formData = new FormData()
     formData.append('image', file)
+    formData.append('choice', choice)
     return this.http.post(`${this.apiUrl}/upload_image`, formData)
   }
 

@@ -17,6 +17,7 @@ export class HomeComponent {
   submittedFile: File | null = null;
   submittedImageUrl: string | null = null;
   resultImageUrl: string | null = null;
+  choiceValue: string | null = null;
 
   constructor(private haarService: HaarService) {}
 
@@ -33,15 +34,27 @@ export class HomeComponent {
     }
   }
 
+  onFaceSelected() {
+    this.choiceValue = "Face"
+  }
+
+  onEyesSelected() {
+    this.choiceValue = "Eyes"
+  }
+
   onSubmit() {
     if(!this.submittedFile) {
-      console.log("Nenhum arquivo encontrado")
+      alert("Nenhum arquivo encontrado")
+      return
+    }else if(!this.choiceValue) {
+      alert("Nenhuma opção de detecção selecionada")
       return
     }
 
-    this.haarService.uploadImage(this.submittedFile).subscribe({
+
+    this.haarService.uploadImage(this.submittedFile, this.choiceValue).subscribe({
       next: () => this.getProcessedImage(),
-      error: (err) => console.error(err)
+      error: (err) => alert("Não foi possível enviar imagem. Erro: " + err)
     })
   }
 
@@ -51,7 +64,7 @@ export class HomeComponent {
         const url = URL.createObjectURL(blob);
         this.resultImageUrl = url
       },
-      error: (err) => console.log(err)
+      error: (err) => alert("Não foi possivel receber imagem processada. Erro: " + err)
     })
   }
 
