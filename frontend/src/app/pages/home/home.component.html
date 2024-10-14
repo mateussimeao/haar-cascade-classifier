@@ -4,7 +4,7 @@
 </header>
 <main class="main-container">
   <app-fileinput (fileSelected)="onFileSelected($event)" (faceSelected)="onFaceSelected()"
-    (eyesSelected)="onEyesSelected()">
+    (maskSelected)="onMaskSelected()">
   </app-fileinput>
   <section class="images-container">
     <div *ngIf="submittedImageUrl">

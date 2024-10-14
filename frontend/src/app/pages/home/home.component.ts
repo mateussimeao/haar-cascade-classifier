@@ -38,8 +38,8 @@ export class HomeComponent {
     this.choiceValue = "Face"
   }
 
-  onEyesSelected() {
-    this.choiceValue = "Eyes"
+  onMaskSelected() {
+    this.choiceValue = "Mask"
   }
 
   onSubmit() {

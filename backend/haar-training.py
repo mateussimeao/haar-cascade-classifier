@@ -51,8 +51,8 @@ def upload_image():
     }
     if choice == "Face":
         xmlfile = 'backend/assets/myfacedetector.xml'
-    elif choice == "Eyes":
-        xmlfile = 'backend/assets/haarcascade_eye.xml'
+    elif choice == "Mask":
+        xmlfile = 'backend/assets/maskdetector.xml'
     else:
         return jsonify({"error": "Nenhuma opção de detecção escolhida."}), 400
 
