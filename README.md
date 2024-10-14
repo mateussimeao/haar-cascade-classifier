@@ -41,7 +41,7 @@ Essa nova funcionalidade complementa a detecção de rostos já existente no sis
 
 
 - ### Observação:
-    - Ainda estão ocorrendo diversos casos de falsos positivos e erros em detecções. A adição de novas imagens negativas no processo de treinamento ajudou a atenuar esses problemas, mas falsos positivos ainda persistem. Continuamos buscando melhorias para aumentar a precisão do classificador e minimizar esses erros.
+    - Ainda estão ocorrendo diversos casos de falsos positivos e erros em detecções. A adição de novas imagens negativas no processo de treinamento ajudou a atenuar esses problemas. Entretanto, a depender da resolução, para imagens muito grandes pode voltar a ocorrência de detecção de falsos positivos.
 
 Essa nova funcionalidade complementa a detecção de rostos já existente no sistema e pode ser usada para casos de controle ou monitoramento do uso de máscaras.
 
