@@ -27,3 +27,22 @@ A interface gráfica foi implementada em **Angular** para permitir a interação
 
 #### Demonstração da aplicação:
 ![Demo](backend/assets/demonstracao.gif)
+
+## Atualização: Detecção de Máscaras Faciais
+
+Agora o projeto inclui a funcionalidade de **detecção de máscaras faciais** em rostos. Esta nova funcionalidade pode ser ativada por meio de um **checkbox** na interface de usuário, permitindo detectar automaticamente se uma pessoa está utilizando máscara facial nas imagens ou vídeos processados.
+
+### Como Usar:
+- Ative a opção de **detecção de máscaras** selecionando o checkbox correspondente.
+- Ao ativar esta opção, o classificador Haar Cascade treinado irá detectar máscaras faciais em alguma imagem de sua escolha enviada para aplicação através do upload de um arquivo local.
+
+Essa nova funcionalidade complementa a detecção de rostos já existente no sistema e pode ser usada para casos de controle ou monitoramento de uso de máscaras.
+
+
+
+- ### Observação:
+    - Ainda estão ocorrendo diversos casos de falsos positivos e erros em detecções. A adição de novas imagens negativas no processo de treinamento ajudou a atenuar esses problemas, mas falsos positivos ainda persistem. Continuamos buscando melhorias para aumentar a precisão do classificador e minimizar esses erros.
+
+Essa nova funcionalidade complementa a detecção de rostos já existente no sistema e pode ser usada para casos de controle ou monitoramento do uso de máscaras.
+
+![Update](backend/assets/update.jpg)
