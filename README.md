@@ -39,7 +39,7 @@ Agora o projeto inclui a funcionalidade de **detecção de máscaras faciais** e
 
 
 - ### Observação:
-    - Ainda estão ocorrendo diversos casos de falsos positivos e erros em detecções. A adição de novas imagens negativas no processo de treinamento ajudou a atenuar esses problemas. Entretanto, a depender da resolução, para imagens muito grandes pode voltar a ocorrência de detecção de falsos positivos.
+    - Houveram problemas de detecção de diversos falsos positivos em imagens de alta resolução. A adição de novas imagens negativas no processo de treinamento ajudou a atenuar esses problemas. Entretanto, a depender do tamanho da imagem a ocorrência de detecção de falsos positivos pode persistir.
 
 Essa nova funcionalidade complementa a detecção de rostos já existente no sistema e pode ser usada para casos de controle ou monitoramento do uso de máscaras.
 
