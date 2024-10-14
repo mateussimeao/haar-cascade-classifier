@@ -36,8 +36,6 @@ Agora o projeto inclui a funcionalidade de **detecção de máscaras faciais** e
 - Ative a opção de **detecção de máscaras** selecionando o checkbox correspondente.
 - Ao ativar esta opção, o classificador Haar Cascade treinado irá detectar máscaras faciais em alguma imagem de sua escolha enviada para aplicação através do upload de um arquivo local.
 
-Essa nova funcionalidade complementa a detecção de rostos já existente no sistema e pode ser usada para casos de controle ou monitoramento de uso de máscaras.
-
 
 
 - ### Observação:
