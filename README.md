@@ -43,4 +43,4 @@ Agora o projeto inclui a funcionalidade de **detecção de máscaras faciais** e
 
 Essa nova funcionalidade complementa a detecção de rostos já existente no sistema e pode ser usada para casos de controle ou monitoramento do uso de máscaras.
 
-![Update](backend/assets/update.jpg)
+![Update](backend/assets/print_update.jpg)
